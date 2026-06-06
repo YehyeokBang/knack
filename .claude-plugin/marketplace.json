@@ -1,0 +1,16 @@
+{
+  "name": "knack",
+  "description": "개인용 편의 스킬 마켓플레이스 — 손에 익은 워크플로 습관을 스킬로 관리·배포",
+  "owner": {
+    "name": "YehyeokBang",
+    "url": "https://github.com/YehyeokBang"
+  },
+  "plugins": [
+    {
+      "name": "knack",
+      "source": "./plugins/knack",
+      "version": "0.1.0",
+      "description": "개인용 편의 스킬 모음 — 제로 재설명 세션 핸드오프(/handoff), 독자 맞춤 문서 윤문"
+    }
+  ]
+}

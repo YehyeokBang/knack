@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# knack pre-commit — lint + version bump guard.
+# Install once per clone: ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
+set -uo pipefail
+cd "$(git rev-parse --show-toplevel)"
+
+./scripts/lint-plugin.sh || exit 1
+
+# Bump guard: on main, reject commits that change plugins/ without bumping
+# plugin.json version. Feature branches skip this — bump happens once, in the
+# final commit before squash-merging to main (see CLAUDE.md branch policy).
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+[ "$BRANCH" != "main" ] && exit 0
+
+git rev-parse -q --verify HEAD >/dev/null || exit 0  # initial commit — no baseline
+
+if git diff --cached --name-only | grep -q '^plugins/'; then
+  OLD=$(git show HEAD:plugins/knack/.claude-plugin/plugin.json 2>/dev/null \
+        | python3 -c 'import json,sys; print(json.load(sys.stdin).get("version",""))' 2>/dev/null)
+  NEW=$(git show :plugins/knack/.claude-plugin/plugin.json 2>/dev/null \
+        | python3 -c 'import json,sys; print(json.load(sys.stdin).get("version",""))' 2>/dev/null)
+  if [ -z "$NEW" ]; then
+    echo "✘ staged plugins/knack/.claude-plugin/plugin.json is missing or unreadable"
+    exit 1
+  fi
+  if [ "$OLD" = "$NEW" ]; then
+    echo "✘ plugins/ changed but plugin.json version unchanged ($NEW)"
+    echo "  → bump plugin.json version + sync marketplace.json + add CHANGELOG entry (see CLAUDE.md)"
+    exit 1
+  fi
+  # CHANGELOG entry for the new version must be staged too (CLAUDE.md rule #3)
+  if ! git show :CHANGELOG.md 2>/dev/null | grep -q "## \[$NEW\]"; then
+    echo "✘ CHANGELOG.md has no '## [$NEW]' entry — add one for this version (see CLAUDE.md)"
+    exit 1
+  fi
+fi
+exit 0
