@@ -35,3 +35,4 @@ venv/
 
 # Claude Code session artifacts
 .claude/
+.superpowers/

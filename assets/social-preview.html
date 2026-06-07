@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nanum+Pen+Script&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  .render {
+    width: 1280px; height: 640px;
+    background: #f5f0e4;
+    display: flex; align-items: center;
+    padding: 0 4.5%; gap: 4%;
+  }
+  .left {
+    flex: 0 0 36%; display: flex; flex-direction: column;
+    transform: translateY(-28px);
+  }
+  .right { flex: 1; }
+  .wordmark {
+    font-family: 'Caveat', cursive; font-size: 150px; font-weight: 700;
+    color: #2b2620; transform: rotate(-2deg);
+    -webkit-text-stroke: 2px #2b2620;
+  }
+  .sub {
+    font-family: 'Nanum Pen Script', cursive; font-size: 60px;
+    color: #2f2922; margin-top: 14px; line-height: 1.45;
+    transform: rotate(-1deg);
+    -webkit-text-stroke: 1.4px #2f2922;
+  }
+  .term {
+    background: #161b22; border: 2px solid #30363d; border-radius: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px; line-height: 1.7; color: #e6edf3;
+    box-shadow: 0 10px 36px rgba(43,38,32,0.22);
+  }
+  .term-bar {
+    background: #21262d; padding: 12px 22px; display: flex; gap: 12px;
+    border-radius: 14px 14px 0 0;
+  }
+  .dot { width: 20px; height: 20px; border-radius: 50%; background: #30363d; }
+  .term-body { padding: 26px 32px; }
+  .cmd { color: #7ee787; font-weight: 700; }
+  .quote { color: #9aa4b2; }
+  .gap { margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="render">
+  <div class="left">
+    <div class="wordmark">Knack</div>
+    <div class="sub">말로 하기 어려운<br>나만의 요령들</div>
+  </div>
+  <div class="right">
+    <div class="term">
+      <div class="term-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="term-body">
+        <div><span class="cmd">&gt; /knack:handoff</span></div>
+        <div class="quote">붙여넣기 한 번, 새 세션에서 하던 작업 그대로</div>
+        <div class="gap"><span class="cmd">&gt; /knack:retune</span></div>
+        <div class="quote">이 내용을 PM이 이해하기 쉽게</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
