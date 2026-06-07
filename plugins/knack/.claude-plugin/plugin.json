@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "knack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "개인용 편의 스킬 모음: 제로 재설명 세션 핸드오프(/handoff), 독자 맞춤 문서 윤문",
   "author": { "name": "YehyeokBang" },
   "repository": "https://github.com/YehyeokBang/knack",

@@ -1,71 +1,75 @@
 # knack
 
-요령, 손에 익은 재주. 개인용 Claude Code 플러그인 마켓플레이스 —
-매일 쓰는 워크플로 습관을 스킬로 만들어 관리·배포한다.
+**English** | [한국어](./README.ko.md)
 
-## 설치
+A knack — a trick of the trade, a skill that lives in your hands.
+A personal Claude Code plugin marketplace that turns everyday workflow
+habits into skills, managed and shipped from one place.
 
-Claude Code에서 아래 두 줄을 순서대로 실행:
+## Installation
+
+Run these two lines in Claude Code, in order:
 
 ```
 /plugin marketplace add YehyeokBang/knack
 /plugin install knack@knack
 ```
 
-설치 후 스킬은 `/knack:<스킬명>` 형태로 호출한다.
+Once installed, invoke skills as `/knack:<skill-name>`.
 
-## 업데이트 (auto-update)
+## Updates (auto-update)
 
-서드파티 마켓플레이스는 **auto-update가 기본 OFF**다. 켜두면 push 후
-다음 세션에서 자동 반영된다:
+Third-party marketplaces have **auto-update OFF by default**. With it
+turned on, a push is picked up automatically in the next session:
 
 ```
-/plugin  →  marketplace 설정에서 knack의 auto-update 켜기
+/plugin  →  in marketplace settings, turn on auto-update for knack
 ```
 
-업데이트 감지 트리거는 `plugin.json`의 `version` 값이다 — 버전 범프 없는
-push는 설치본에 반영되지 않는다.
+The update trigger is the `version` value in `plugin.json` — a push
+without a version bump is never applied to installed copies.
 
-## 제공 스킬
+## Skills
 
-> 버전·변경 이력은 [CHANGELOG](./CHANGELOG.md), 현재 버전은 [plugin.json](./plugins/knack/.claude-plugin/plugin.json) 참조.
-> 모든 스킬은 단일 플러그인 단위로 함께 배포·업데이트된다.
+> See the [CHANGELOG](./CHANGELOG.md) for version history and [plugin.json](./plugins/knack/.claude-plugin/plugin.json) for the current version.
+> All skills ship and update together as a single plugin.
 
-| 호출 명령 | 설명 | 문서 |
-|-----------|------|------|
-| `/knack:handoff` | 세션 종료 시 다음 세션용 제로 재설명 handoff prompt 생성 — 경로·커밋 해시 실존 검증 + 코드블록 출력 + 클립보드 복사 | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
-| `/knack:retune` | 독자 맞춤 문서 윤문 — 대상 독자(PM/비개발자/타 직군) 눈높이로 재작성. 넘버링·영어 줄임말·번역투·전문용어 교정 | [SKILL.md](./plugins/knack/skills/retune/SKILL.md) |
+| Command | Description | Docs |
+|---------|-------------|------|
+| `/knack:handoff` | Generates a zero re-explanation handoff prompt for the next session at session end — verifies that paths and commit hashes exist, prints a code block, and copies it to the clipboard | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
+| `/knack:retune` | Reader-tailored document rewriting — rewrites for the target audience (PM / non-developer / other roles). Fixes meaningless numbering, vague English abbreviations, translationese, and unexplained jargon | [SKILL.md](./plugins/knack/skills/retune/SKILL.md) |
 
-## 레포 구조
+## Repository structure
 
 ```
 knack/
 ├── .claude-plugin/
-│   └── marketplace.json         # 마켓플레이스 카탈로그 (version은 plugin.json과 동기화)
+│   └── marketplace.json         # Marketplace catalog (version kept in sync with plugin.json)
 ├── plugins/
-│   └── knack/                   # 플러그인 (name: "knack")
+│   └── knack/                   # Plugin (name: "knack")
 │       ├── .claude-plugin/
-│       │   └── plugin.json      # version — ★ auto-update 트리거
+│       │   └── plugin.json      # version — ★ auto-update trigger
 │       ├── skills/
 │       │   ├── handoff/         # /knack:handoff
 │       │   │   ├── SKILL.md
-│       │   │   └── references/  # 인계 유형별 템플릿 3종
+│       │   │   └── references/  # 3 handoff-type templates
 │       │   └── retune/          # /knack:retune
 │       │       └── SKILL.md
-│       └── README.md            # 스킬 인덱스
+│       └── README.md            # Skill index
 ├── scripts/
-│   └── lint-plugin.sh           # 버전 동기화·README 싱크·500줄 검증
+│   └── lint-plugin.sh           # Version sync, README sync, 500-line checks
 ├── CHANGELOG.md
-├── CLAUDE.md                    # 버전 범프 규칙·롤백 절차·브랜치 정책
-└── README.md
+├── CLAUDE.md                    # Version bump rules, rollback procedure, branch policy
+├── README.md                    # English (main)
+└── README.ko.md                 # Korean
 ```
 
-> 새 스킬은 `skills/` 아래 디렉토리만 추가하면 `/knack:<디렉토리명>`으로 자동 등록된다.
+> To add a new skill, just add a directory under `skills/` — it is auto-registered as `/knack:<directory-name>`.
 
-## 요구사항
+## Requirements
 
-- macOS (`/knack:handoff`의 클립보드 복사가 `pbcopy` 의존 — 크로스플랫폼 지원은 로드맵)
+- macOS (the clipboard copy in `/knack:handoff` depends on `pbcopy` — cross-platform support is on the roadmap)
 
-## 문의
+## Contact
 
-- 버그·개선 요청: [knack Issues](https://github.com/YehyeokBang/knack/issues)
+- Bugs and feature requests: [knack Issues](https://github.com/YehyeokBang/knack/issues)

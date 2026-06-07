@@ -13,6 +13,14 @@ knack 플러그인의 버전별 변경 이력. 형식: [Keep a Changelog](https:
 - auto-update 실측: ① 패치 버전 push ② 새 세션 ③ `/plugin`으로 버전 확인 — 2회.
   2회 연속 불일치 시 v0.1.1에 업데이트 알림 훅 추가.
 
+## [0.1.1] - 2026-06-07
+
+### Changed
+
+- README 영/한 분리: 루트 README.md를 영문 메인으로 전환, 한글은 README.ko.md로
+  이동 (상단 English | 한국어 전환 링크). plugins/knack/README.md 영문화.
+- lint-plugin.sh: README 싱크 검사 대상에 README.ko.md 추가.
+
 ## [0.1.0] - 2026-06-07
 
 ### Added

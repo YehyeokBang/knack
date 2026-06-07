@@ -13,7 +13,7 @@ SKILLS_DIR="$PLUGIN_DIR/skills"
 
 echo "== 1. README skill tables vs skills/ directory =="
 SKILLS=$(find "$SKILLS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
-for README in README.md "$PLUGIN_DIR/README.md"; do
+for README in README.md README.ko.md "$PLUGIN_DIR/README.md"; do
   for s in $SKILLS; do
     grep -q "/knack:$s" "$README" || err "$README: skill '/knack:$s' missing from table"
   done
