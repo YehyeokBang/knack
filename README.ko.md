@@ -2,6 +2,8 @@
 
 [English](./README.md) | **한국어**
 
+<img src="./assets/social-preview.png" alt="knack — 개인용 Claude Code 플러그인 마켓플레이스" width="640">
+
 요령, 손에 익은 재주. 개인용 Claude Code 플러그인 마켓플레이스 —
 매일 쓰는 워크플로 습관을 스킬로 만들어 관리·배포한다.
 

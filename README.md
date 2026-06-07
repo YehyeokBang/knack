@@ -2,6 +2,8 @@
 
 **English** | [한국어](./README.ko.md)
 
+<img src="./assets/social-preview.png" alt="knack — personal Claude Code plugin marketplace" width="640">
+
 A knack — a trick of the trade, a skill that lives in your hands.
 A personal Claude Code plugin marketplace that turns everyday workflow
 habits into skills, managed and shipped from one place.
