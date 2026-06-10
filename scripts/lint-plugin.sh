@@ -63,5 +63,12 @@ for f in sorted(glob.glob("plugins/knack/skills/*/SKILL.md")):
 sys.exit(1 if bad else 0)
 PYEOF
 
+echo "== 5. eval grader self-test (deterministic, no model calls) =="
+if [ -f evals/run-graders.sh ]; then
+  bash evals/run-graders.sh || FAIL=1
+else
+  echo "(evals/run-graders.sh 없음 — skip)"
+fi
+
 echo
 if [ "$FAIL" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "LINT FAILED"; exit 1; fi

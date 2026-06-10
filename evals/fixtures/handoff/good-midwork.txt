@@ -1,0 +1,24 @@
+knack 평가 프레임워크 Task 1 구현 작업을 이어서 진행해줘.
+
+## 컨텍스트
+- 작업 디렉토리: /Users/yehyeok/Desktop/work/knack (브랜치 feature/eval-framework, HEAD c868fdd)
+- 관련 문서: plugins/knack/skills/handoff/SKILL.md (커밋 c868fdd)
+
+## 완료된 것
+- handoff 결정론 그레이더 초안 (커밋 c868fdd)
+- fixture 디렉토리 골격
+
+## 남은 것
+- [ ] scripts/lint-plugin.sh 에 그레이더 자가검증 섹션 추가
+- [ ] retune 루브릭 작성
+
+## 현재 상태
+- 테스트: ./scripts/lint-plugin.sh 통과
+- 워킹트리: 클린
+- 알려진 깨짐/이슈: 없음
+
+## 주의
+- promptfoo 도입은 Task 2 범위 — 지금 추가 금지
+- evals/ 는 레포 루트, plugins/ 아래 아님 (버전 범프 불필요)
+
+첫 액션: scripts/lint-plugin.sh Read 후 섹션 5 추가부터

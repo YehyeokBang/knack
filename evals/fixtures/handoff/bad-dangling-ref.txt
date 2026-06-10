@@ -1,0 +1,23 @@
+결제 재시도 기능 구현을 이어서 진행해줘.
+
+## 컨텍스트
+- 작업 디렉토리: /Users/yehyeok/Desktop/work/knack (브랜치 feature/x, HEAD c868fdd)
+- 구현 계획: docs/ghost-plan.md (커밋 c868fdd)
+- 참고: plugins/knack/skills/handoff/SKILL.md
+
+## 완료된 것
+- 재시도 큐 스켈레톤 (커밋 c868fdd)
+
+## 남은 것
+- [ ] 지수 백오프 구현
+- [ ] 멱등성 키 검증
+
+## 현재 상태
+- 테스트: 미실행
+- 워킹트리: 클린
+- 알려진 깨짐/이슈: 없음
+
+## 주의
+- 동기 재시도 방식은 검토 후 기각됨, 재제안 금지
+
+첫 액션: docs/ghost-plan.md Read 후 Task 1부터

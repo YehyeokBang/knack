@@ -1,0 +1,8 @@
+{"prompt": "핸드오프 만들어줘", "expect": "trigger", "skill": "handoff"}
+{"prompt": "다음 세션에서 이어서 할 수 있게 정리해줘", "expect": "trigger", "skill": "handoff"}
+{"prompt": "이 작업 복붙해서 새 창에서 시작하게 프롬프트 만들어줘", "expect": "trigger", "skill": "handoff"}
+{"prompt": "인계 프롬프트 작성해줘", "expect": "trigger", "skill": "handoff"}
+{"prompt": "이 문서 PM이 이해하게 다듬어줘", "expect": "no-trigger", "skill": "handoff", "note": "retune으로 라우팅돼야 함"}
+{"prompt": "이 코드 리뷰해줘", "expect": "no-trigger", "skill": "handoff"}
+{"prompt": "테스트 코드 작성해줘", "expect": "no-trigger", "skill": "handoff"}
+{"prompt": "이 함수 버그 고쳐줘", "expect": "no-trigger", "skill": "handoff"}

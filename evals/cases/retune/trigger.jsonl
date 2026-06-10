@@ -1,0 +1,7 @@
+{"prompt": "이 문서 PM이 이해하게 다듬어줘:\n\nT1은 이번 주 배포, T2는 QA 후로 보류. EOD까지 PR 머지 부탁.", "expect": "trigger", "skill": "retune"}
+{"prompt": "비개발자용으로 눈높이 맞춰서 윤문해줘:\n\n캐시 무효화 로직의 TTL 설정 변경이 진행될 예정입니다. 배포 후 CDN 전파 지연이 발생할 수 있습니다.", "expect": "trigger", "skill": "retune"}
+{"prompt": "이 보고서 경영진이 읽게 바꿔줘:\n\n1안으로 진행했으나 N+1 쿼리로 P95 레이턴시가 SLO를 초과. 2안(인덱스 추가)으로 롤백 예정.", "expect": "trigger", "skill": "retune"}
+{"prompt": "이 문서 독자 맞춤으로 다듬어줘 (독자: 타 팀 백엔드):\n\n레이스 컨디션 때문에 멱등성 보장이 안 돼서 중복 결제가 발생했습니다.", "expect": "trigger", "skill": "retune"}
+{"prompt": "핸드오프 만들어줘", "expect": "no-trigger", "skill": "retune", "note": "handoff로 라우팅돼야 함"}
+{"prompt": "이 함수 버그 고쳐줘", "expect": "no-trigger", "skill": "retune"}
+{"prompt": "다음 세션에서 이어서 하게 정리해줘", "expect": "no-trigger", "skill": "retune", "note": "handoff로 라우팅돼야 함"}

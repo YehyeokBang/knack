@@ -1,0 +1,16 @@
+{
+  "skill": "retune",
+  "type": "audience-rewrite",
+  "query": "이 회고 경영진이 읽게 바꿔줘",
+  "reader": "경영진",
+  "input_doc": "1안으로 진행했으나 N+1 쿼리 때문에 P95 레이턴시가 SLO를 초과했습니다. 2안(인덱스 추가)으로 롤백 예정이며, ASAP으로 핫픽스 배포합니다.",
+  "expected_behavior": [
+    "Target 1: 1안/2안을 자기설명적 이름으로 교체",
+    "Target 2: P95, SLO, ASAP 약어 풀어쓰기",
+    "Target 4: N+1 쿼리를 경영진 눈높이로 (성능 영향 중심) 치환",
+    "원문의 사실·의도 보존 — 비즈니스 임팩트가 드러나되 왜곡 없음",
+    "출력: 윤문본 코드블록 + 타깃별 교정 목록",
+    "경영진이 한 번 읽고 의사결정 가능"
+  ],
+  "rubric": "graders/rubric-retune.md"
+}

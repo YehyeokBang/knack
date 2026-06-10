@@ -1,0 +1,16 @@
+{
+  "skill": "retune",
+  "type": "audience-rewrite",
+  "query": "이 문서 PM이 이해하게 다듬어줘",
+  "reader": "PM",
+  "input_doc": "T1은 이번 스프린트에 배포하고 T2는 QA 이후로 미룹니다. EOD까지 PR 머지 부탁드려요. 레이스 컨디션 때문에 멱등성 보장이 안 돼서 중복 결제가 발생했습니다.",
+  "expected_behavior": [
+    "Target 1: T1/T2 같은 무의미 넘버링을 자기설명적 기능 이름으로 교체",
+    "Target 2: EOD/PR 등 영어 약어를 풀어쓰거나 평이한 말로 대체",
+    "Target 4: '레이스 컨디션', '멱등성'을 PM 눈높이 평이한 설명으로 치환",
+    "원문의 사실·의도 보존 (의미 변경 없음)",
+    "출력: 윤문본 코드블록 + 4개 타깃별 교정 목록",
+    "PM이 한 번 읽고 추가 질문 없이 이해 가능"
+  ],
+  "rubric": "graders/rubric-retune.md"
+}

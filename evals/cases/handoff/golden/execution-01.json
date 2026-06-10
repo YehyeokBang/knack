@@ -1,0 +1,16 @@
+{
+  "skill": "handoff",
+  "type": "execution",
+  "query": "이거 다음 세션에서 실행만 하게 핸드오프 만들어줘",
+  "context": "스펙·구현계획 승인 완료하고 커밋함. 다음 세션은 계획의 6개 태스크를 순서대로 실행만 하면 됨. 코드는 아직 시작 안 함.",
+  "expected_behavior": [
+    "execution 템플릿 선택",
+    "'다시 논의하지 말고 바로 실행' 취지의 문장 포함 (재논의 차단)",
+    "스펙/계획 문서 경로 + 커밋 해시 명시",
+    "기각된 대안이 있으면 '재제안 금지'로 표기",
+    "구체적 첫 액션 줄 존재 (Read할 문서 + Task 1 지정)",
+    "15-40줄, self-contained"
+  ],
+  "deterministic_grader": "graders/handoff-checks.sh",
+  "rubric": "graders/rubric-handoff.md"
+}
