@@ -38,7 +38,7 @@ without a version bump is never applied to installed copies.
 
 | Command | Description | Docs |
 |---------|-------------|------|
-| `/knack:handoff` | Generates a zero re-explanation handoff prompt for the next session at session end — verifies that paths and commit hashes exist, prints a code block, and copies it to the clipboard | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
+| `/knack:handoff` | Generates a zero re-explanation handoff with task intent, verified references, and receiving-session state checks; prints it and copies it to the clipboard | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
 | `/knack:retune` | Reader-tailored document rewriting — rewrites for the target audience (PM / non-developer / other roles). Fixes meaningless numbering, vague English abbreviations, translationese, and unexplained jargon | [SKILL.md](./plugins/knack/skills/retune/SKILL.md) |
 
 ## Repository structure

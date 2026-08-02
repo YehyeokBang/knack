@@ -28,6 +28,8 @@ assert_fail() {
 
 echo "== handoff grader self-test =="
 assert_pass "fixtures/handoff/good-midwork.txt"
+assert_pass "fixtures/handoff/good-research-extended.txt"
+assert_fail "fixtures/handoff/bad-nonresearch-extended.txt"
 assert_fail "fixtures/handoff/bad-dangling-ref.txt"
 assert_fail "fixtures/handoff/bad-not-selfcontained.txt"
 assert_fail "fixtures/handoff/bad-no-first-action.txt"

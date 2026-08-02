@@ -4,7 +4,7 @@
 # (execution / midwork / research) must satisfy, per skills/handoff/SKILL.md:
 #   1. Self-contained   — no back-references to the prior chat (원칙 #1)
 #   2. Concrete first action — a "첫 액션:" line, never a bare "이어서 해줘" (원칙 #3)
-#   3. Length budget    — 15–40 lines (원칙 #4)
+#   3. Length budget    — 15–45 lines; sourced research may use 46–55 (원칙 #4)
 #   4. Reference integrity — every file path / commit hash resolves (원칙 #2 / Step 3)
 #
 # Type-specific checks (correct template chosen, dirty-tree guard, etc.) are left
@@ -53,11 +53,16 @@ else
   err "첫 액션 줄 없음 ('첫 액션:' 으로 시작하는 줄 필요)"
 fi
 
-# --- Check 3: length budget 15-40 lines ---
-if [ "$NLINES" -ge 15 ] && [ "$NLINES" -le 40 ]; then
-  ok "길이 ${NLINES}줄 (15-40 예산 내)"
+# --- Check 3: length budget (normal 15-45; conversation-sourced research 46-55) ---
+if [ "$NLINES" -ge 15 ] && [ "$NLINES" -le 45 ]; then
+  ok "길이 ${NLINES}줄 (15-45 예산 내)"
+elif [ "$NLINES" -ge 46 ] && [ "$NLINES" -le 55 ] \
+  && printf '%s' "$TEXT" | grep -q '^## 확정된 사실' \
+  && printf '%s' "$TEXT" | grep -q '^## 조사 범위' \
+  && printf '%s' "$TEXT" | grep -qE '\(출처: (대화 합의|conversation agreement)'; then
+  ok "길이 ${NLINES}줄 (대화에만 근거가 있는 research 예외 46-55 적용)"
 else
-  err "길이 ${NLINES}줄 (15-40 예산 밖)"
+  err "길이 ${NLINES}줄 (일반 15-45 / 대화 근거 research 46-55 예산 밖)"
 fi
 
 # --- Check 4: reference integrity (paths + commit hashes) ---

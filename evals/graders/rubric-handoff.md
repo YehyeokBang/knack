@@ -25,6 +25,17 @@ Output schema per criterion: `{ "text": <criterion>, "passed": <bool>, "evidence
    it appears with "재제안 금지".
 5. **Actionable for a cold start** — A fresh session with zero prior context could
    execute the first action without asking a clarifying question.
+6. **Intent and state freshness carried** — The handoff explains why the work
+   matters or what completion enables. Git-backed handoffs require the receiver
+   to compare current branch/status with the recorded snapshot; midwork also
+   says recorded test state must be refreshed.
+7. **Complete boundary carried** — Midwork includes every remaining task supplied
+   by the context, not only the next task. Research states both inspected and
+   uninspected scope and distinguishes verified sources from unverified
+   conversation-only agreement.
+8. **Receiving scope is bounded** — The handoff prohibits unrequested scope
+   expansion, limits delegation to sizeable independent work, and keeps written
+   artifacts proportional. It does not require a generic verifier-agent loop.
 
 ## Notes
 - Deterministic checks (self-contained, 첫 액션, length, ref integrity) are already

@@ -38,7 +38,12 @@ End with one executable first step ("Task 1부터 진행", "X 파일 Read부터"
 "이어서 해줘" is forbidden.
 
 ### 4. Length budget
-Target 15–40 lines. Too short starves context; too long won't be read.
+Target 15–45 lines. Too short starves context; too long won't be read.
+Mandatory continuity clauses are never what you trim to fit — cut low-value
+prose and duplicate facts first. Research handoffs may extend to 55 lines only
+when sourced facts exist solely in this conversation and there is no verified
+on-disk spec or plan to reference. The extra room is for facts with source
+labels, never for prose.
 
 ## Step 1 — Classify session state
 
@@ -61,9 +66,11 @@ Use these options and descriptions verbatim:
 ## Step 2 — Collect facts
 
 From the conversation:
+- The background: why the work matters and what completion enables
 - Agreed decisions (and WHO approved — the user)
 - Rejected alternatives, so the next session does not re-propose them
 - Open questions (research type only)
+- What was and was not inspected (research type only)
 - The concrete next action
 
 From git (run in the working directory):

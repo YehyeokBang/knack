@@ -12,18 +12,29 @@ separated, with sources**.
 ## 컨텍스트
 - 작업 디렉토리: <절대 경로> (브랜치 <branch>, HEAD <hash>)
 - 목표: <이 조사가 끝나면 무엇이 결정되어야 하는지 한 줄>
+- 시작 전 git status와 현재 브랜치를 확인하고, 위 브랜치/HEAD와 다르면 작업 전에 사용자에게 보고할 것
+- 워킹트리: <더티 파일 목록과 미커밋 이유 — 클린이면 이 줄 생략>
 
 ## 확정된 사실
-- <사실> (출처: <파일 경로:라인 / 문서명 / 코드 직접 확인>)
-- <사실> (출처: <...>)
+- <사실> (출처: 코드 직접 확인 — <파일 경로 + 클래스/메서드명>)
+- <사실> (출처: 문서 — <경로>)
+- <사실> (출처: 대화 합의 — 미검증. 사용 전에 기존 설계 문서·코드와 대조할 것)
+
+## 조사 범위
+- 조사함: <실제로 확인한 시스템/모듈/문서>
+- 조사 안 함: <의도적으로 안 본 영역>
 
 ## 미결 질문
 - Q1: <질문> — 현재 유력안: <안 + 근거 한 줄>
 - Q2: <질문> — 현재 유력안: <미정이면 "미정">
 
 ## 주의
-- 추측 금지. 모든 새 주장은 출처(파일명·라인 또는 코드 직접 확인) 명시.
+- 추측 금지. 모든 새 주장은 출처(파일 경로 + 클래스/메서드명, 문서 경로, 또는 코드 직접 확인) 명시.
   근거가 없으면 "확인 필요"로 표시.
+- 미결 질문 해소 범위를 벗어난 구현·리팩터링 금지. 조사 단계이므로 코드 수정은 사용자 승인 후에.
+- 위임은 여러 파일·모듈에 걸친 넓은 조사에만. 툴 호출 몇 번으로 끝날 확인은 직접 하고,
+  결론 재확인 목적으로 서브에이전트를 추가로 띄우지 말 것.
+- 산출 문서는 필요한 분량만. 채우기용 섹션·중복 요약 금지.
 - <기각된 안 — 예: X안은 Y 근거로 기각됨, 재제안 금지>
 
 첫 액션: <Q1 해소를 위한 구체적 첫 단계 — 예: X 파일 Read, Y 명령으로 확인>
@@ -33,9 +44,14 @@ separated, with sources**.
 
 - 확정된 사실 entries MUST carry a source. A "fact" without a source goes to
   미결 질문 instead — this separation is the core value of this type.
+- Source labels distinguish code/document verification from conversation-only
+  agreement. Conversation-only agreement is explicitly unverified.
+- Reference code by file path plus class or method name, not line number.
+- 조사 범위 is mandatory so the fact list is not mistaken for exhaustive coverage.
 - Each open question carries the current leading answer (or "미정") so the
   next session starts from the frontier, not from zero.
 - The 추측 금지 clause is mandatory boilerplate — keep it verbatim. It mirrors
   the user's recurring instruction for fact-based research delegation.
 - If sub-agent delegation was the working style (collection by sub-agents,
   judgment in main session), say so in 주의.
+- The scope, delegation, and document-length guards are mandatory.

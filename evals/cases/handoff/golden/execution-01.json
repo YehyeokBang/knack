@@ -9,7 +9,9 @@
     "스펙/계획 문서 경로 + 커밋 해시 명시",
     "기각된 대안이 있으면 '재제안 금지'로 표기",
     "구체적 첫 액션 줄 존재 (Read할 문서 + Task 1 지정)",
-    "15-40줄, self-contained"
+    "배경/완료 효과와 수신 시점 git 재확인 포함",
+    "범위 확장·과도한 위임·문서 팽창 방지",
+    "15-45줄, self-contained"
   ],
   "deterministic_grader": "graders/handoff-checks.sh",
   "rubric": "graders/rubric-handoff.md"

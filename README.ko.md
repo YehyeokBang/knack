@@ -37,7 +37,7 @@ push는 설치본에 반영되지 않는다.
 
 | 호출 명령 | 설명 | 문서 |
 |-----------|------|------|
-| `/knack:handoff` | 세션 종료 시 다음 세션용 제로 재설명 handoff prompt 생성 — 경로·커밋 해시 실존 검증 + 코드블록 출력 + 클립보드 복사 | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
+| `/knack:handoff` | 작업 의도·검증된 참조·수신 시점 상태 재확인을 담은 제로 재설명 handoff prompt 생성 + 클립보드 복사 | [SKILL.md](./plugins/knack/skills/handoff/SKILL.md) |
 | `/knack:retune` | 독자 맞춤 문서 윤문 — 대상 독자(PM/비개발자/타 직군) 눈높이로 재작성. 넘버링·영어 줄임말·번역투·전문용어 교정 | [SKILL.md](./plugins/knack/skills/retune/SKILL.md) |
 
 ## 레포 구조

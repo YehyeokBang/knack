@@ -9,7 +9,7 @@
     {
       "name": "knack",
       "source": "./plugins/knack",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "개인용 편의 스킬 모음 — 제로 재설명 세션 핸드오프(/handoff), 독자 맞춤 문서 윤문"
     }
   ]

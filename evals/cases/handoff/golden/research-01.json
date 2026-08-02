@@ -6,10 +6,12 @@
   "expected_behavior": [
     "research 템플릿 선택 (확정된 사실 / 미결 질문 분리)",
     "확정된 사실 각 항목에 출처 명시",
+    "조사함 / 조사 안 함 범위 분리",
+    "대화 합의 사실은 미검증으로 표기",
     "미결 질문에 현재 유력안 또는 '미정' 표기",
     "'추측 금지, 출처 명시' 취지의 주의 문구 포함",
     "구체적 첫 액션 줄 존재 (Q1 해소 첫 단계)",
-    "15-40줄, self-contained"
+    "일반 15-45줄(대화 근거만 있으면 최대 55줄), self-contained"
   ],
   "deterministic_grader": "graders/handoff-checks.sh",
   "rubric": "graders/rubric-handoff.md"

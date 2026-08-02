@@ -21,10 +21,10 @@ knack 스킬(`handoff`, `retune`)의 **행동 품질**을 측정·회귀 방지�
 
 ```
 graders/
-  handoff-checks.sh    # 결정론 그레이더 (self-contained / 첫 액션 / 15-40줄 / 참조 무결성)
+  handoff-checks.sh    # 결정론 그레이더 (self-contained / 첫 액션 / 길이 예산 / 참조 무결성)
   rubric-handoff.md    # LLM-judge 루브릭 (템플릿 타입·완결성 — Task 2)
   rubric-retune.md     # LLM-judge 루브릭 (의미 보존·독자 이해 — Task 2)
-fixtures/handoff/      # 그레이더 자가검증용 good/bad 샘플 (good 1 + bad 4, 각 1체크 격리)
+fixtures/handoff/      # 그레이더 자가검증용 good/bad 샘플 (길이 유형 예외 포함)
 cases/
   handoff/trigger.jsonl    # should-trigger / no-trigger(near-miss) — precision/recall (Task 2)
   handoff/golden/*.json    # midwork·execution·research 기대동작 루브릭
@@ -52,11 +52,13 @@ bash evals/graders/handoff-checks.sh <handoff.txt> --root <repo-root>
 |---|---|---|
 | self-contained | 이전 대화 참조 표현 부재 | 원칙 #1 |
 | 첫 액션 | `첫 액션:` 줄 존재 + `이어서 해줘` 부재 | 원칙 #3 |
-| 길이 | 15–40줄 | 원칙 #4 |
+| 길이 | 일반 15–45줄, 대화 근거 research만 46–55줄 | 원칙 #4 |
 | 참조 무결성 | 모든 파일 경로 `test -e`, 커밋 해시 `git cat-file` 통과 | 원칙 #2 / Step 3 |
 
 bad fixture는 **각각 하나의 체크만 실패**하도록 설계되어, 자가검증 green은 모든 체크가
 (나쁜 케이스를 잡고) + (좋은 케이스를 통과시킨다)를 동시에 증명한다.
+`good-research-extended.txt`는 대화에만 출처가 있는 46줄 research 예외를,
+`bad-nonresearch-extended.txt`는 같은 길이 구간의 일반 handoff 거부를 검증한다.
 
 ## Task 2 — 크로스모델 트리거 평가 (✅ 구현됨)
 
